@@ -1,4 +1,4 @@
-name: Deploy with Self-Hosted Runner
+name: Deploy with Self-Hosted Runner (Windows)
 
 on:
   push:
@@ -7,21 +7,9 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: [self-hosted, windows]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
-
-      - name: Deploy
-        run: echo "Deploying application..."
+        run: | 
+            node --version 
+            npm --version
